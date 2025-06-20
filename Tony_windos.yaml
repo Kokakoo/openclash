@@ -65,7 +65,7 @@ rule-providers:
   Direct: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Direct/Direct.list'}
   # 国外网站
   Out: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy.list'}
-  Myrule: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/My/My.list'}
+  Myrule: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/Kokakoo/openclash/refs/heads/main/my_rule.list'}
 
 proxies:
   # ================= 机场节点 =================
