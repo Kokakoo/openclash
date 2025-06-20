@@ -1,0 +1,213 @@
+# clash
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: '0.0.0.0:9090'
+global-client-fingerprint: chrome
+unified-delay: true
+geox-url:
+  mmdb: 'https://ghfast.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.metadb'
+  geosite: https://ghfast.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+  geoip: https://ghfast.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
+  asn: https://ghfast.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
+dns:
+  enable: true
+  listen: '0.0.0.0:1053'
+  enhanced-mode: 'fake-ip'
+  default-nameserver:
+    - 114.114.114.114
+    - 1.1.1.1
+    - 8.8.8.8
+
+  nameserver:
+    - 'https://dns.alidns.com/dns-query'
+    - 'https://doh.opendns.com/dns-query'
+    - 'https://dns.quad9.net/dns-query'
+
+
+rule-providers:
+  # 局域网   
+  Lan: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Lan.list'}
+  #广告拦截
+  Reject: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Reject.list'}
+  # 苹果服务
+  Apple: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Apple.list'}
+  AppleProxy: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/AppleProxy.list'}
+  # 微软服务 
+  Microsoft: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Microsoft.list'}
+  OneDrive: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/OneDrive.list'}
+  Github: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Github.list'}
+  # 谷歌服务
+  Youtube: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/YouTube.list'}
+  Google: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list'}
+  # 电报消息
+  Telegram: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Telegram.list'}
+  # 推特消息
+  Twitter: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Twitter.list'}
+  # 游戏平台
+  Steam: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Steam.list'}
+  Epic: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Epic.list'}
+  # AI平台
+  OpenAI: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list'}
+  # Emby
+  Emby: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Emby.list'}
+  # Spotify
+  Spotify: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Spotify.list'}
+  # 国际媒体
+  Bahamut: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Bahamut.list'}
+  Netflix: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Netflix.list'}
+  Disney: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Disney.list'}
+  PrimeVideo: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/PrimeVideo.list'}
+  HBO: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/HBO.list'}
+  TikTok: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/TikTok.list'}
+  # 其他
+  Direct: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Direct/Direct.list'}
+  # 国外网站
+  Out: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy.list'}
+  Myrule: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/My/My.list'}
+
+proxies:
+  # ================= 机场节点 =================
+  - { name: '美国 pz (gpt优化)', server: us-pz.aikunapp.com, port: 5001, sni: d1--cn-gotcha204-4.bilivideo.com, skip-cert-verify: true, type: hysteria2, password: a7833804-2fcd-458a-8e9e-77c7eff7c828 }
+  - { name: '美国 rs 新协议', type: anytls, server: tj-us-1.aikunapp.com, port: 6001, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, client-fingerprint: chrome, skip-cert-verify: true, sni: bootcdn.xuexi.cn }
+  - { name: 2x专线-香港-1, server: v4-aws-hk.aikunapp.com, port: 7001, sni: d1--cn-gotcha204-3.bilivideo.com, skip-cert-verify: true, type: hysteria2, password: a7833804-2fcd-458a-8e9e-77c7eff7c828 }
+  - { name: '2x专线-香港-2 (新协议)', type: anytls, server: v4-aws-hk.aikunapp.com, port: 7001, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, client-fingerprint: chrome, skip-cert-verify: true, sni: d1--cn-gotcha204-3.bilivideo.com }
+  - { name: 2x专线-日本-1, server: v4-aws-jp.aikunapp.com, port: 7001, sni: d1--cn-gotcha204-3.bilivideo.com, skip-cert-verify: true, type: hysteria2, password: a7833804-2fcd-458a-8e9e-77c7eff7c828 }
+  - { name: '2x专线-日本-2 (新协议)', type: anytls, server: v4-aws-jp.aikunapp.com, port: 7001, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, client-fingerprint: chrome, skip-cert-verify: true, sni: d1--cn-gotcha204-3.bilivideo.com }
+  - { name: 2x专线-新加坡-1, server: v4-aws-sg.aikunapp.com, port: 7001, sni: d1--cn-gotcha204-3.bilivideo.com, skip-cert-verify: true, type: hysteria2, password: a7833804-2fcd-458a-8e9e-77c7eff7c828 }
+  - { name: '2x专线-新加坡-2 (新协议)', type: anytls, server: v4-aws-sg.aikunapp.com, port: 7001, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, client-fingerprint: chrome, skip-cert-verify: true, sni: d1--cn-gotcha204-3.bilivideo.com }
+  - { name: '美国 pz 电信优化', type: anytls, server: us-pz.aikunapp.com, port: 6001, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, client-fingerprint: chrome, skip-cert-verify: true, sni: 127.0.0.1 }
+  - { name: '美国 rs (gpt优化)', server: us-rs.aikunapp.com, port: 5001, sni: d1--cn-gotcha204-4.bilivideo.com, skip-cert-verify: true, type: hysteria2, password: a7833804-2fcd-458a-8e9e-77c7eff7c828 }
+  - { name: '美国 01（电信移动优化）', server: do-us.aikunapp.com, port: 5001, sni: d1--cn-gotcha204-4.bilivideo.com, skip-cert-verify: true, type: hysteria2, password: a7833804-2fcd-458a-8e9e-77c7eff7c828 }
+  - { name: '美国 2 流媒体优化', type: anytls, server: 31.59.111.32, port: 6001, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, client-fingerprint: chrome, skip-cert-verify: true, sni: 11EZ8O0PVBzfYQRj.aikun.app }
+  - { name: '美国 3 流媒体优化', server: 31.59.111.17, port: 5001, sni: d1--cn-gotcha204-4.bilivideo.com, skip-cert-verify: true, type: hysteria2, password: a7833804-2fcd-458a-8e9e-77c7eff7c828 }
+  - { name: '美国 3（移动联通优化）', server: us-oracle.aikunapp.com, port: 5001, sni: d1--cn-gotcha204-4.bilivideo.com, skip-cert-verify: true, type: hysteria2, password: a7833804-2fcd-458a-8e9e-77c7eff7c828 }
+  - { name: '台湾(原生IP) 新协议', type: anytls, server: hinetddns1.aikunapp.com, port: 6001, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, client-fingerprint: chrome, skip-cert-verify: true, sni: WVf0VOz2m3WFzjdE.cn }
+  - { name: 台湾(原生IP), server: hinetddns1.aikunapp.com, port: 5001, sni: xuexi.cn, skip-cert-verify: true, type: hysteria2, password: a7833804-2fcd-458a-8e9e-77c7eff7c828 }
+  - { name: '加拿大 高速 cdn 1', type: vmess, server: cdncdncdn.aikunapp.com, port: 443, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, tls: true, client-fingerprint: chrome, skip-cert-verify: true, servername: r-FXC2y0UJXFE7CXGw.sm-node.com, network: ws, ws-opts: { path: '/vmess_ws/smjc/index?ed=8192', headers: { Host: cdn-ca.sm-node.com } }, ws-path: '/vmess_ws/smjc/index?ed=8192', ws-headers: { Host: cdn-ca.sm-node.com } }
+  - { name: '美国 高速 cdn 1', type: vmess, server: cdncdncdn.aikunapp.com, port: 443, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, tls: true, client-fingerprint: chrome, skip-cert-verify: true, servername: r-abB8aCaXovXpVC0h.sm-node.com, network: ws, ws-opts: { path: '/vmess_ws/smjc/index?ed=8192', headers: { Host: cdn-us.sm-node.com } }, ws-path: '/vmess_ws/smjc/index?ed=8192', ws-headers: { Host: cdn-us.sm-node.com } }
+  - { name: '加拿大 高速 cdn 2', type: vless, server: cdncdncdn.aikunapp.com, port: 443, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, tls: true, client-fingerprint: chrome, skip-cert-verify: true, servername: r-o2bSH1oSXHN7okuT.sm-node.com, network: ws, ws-opts: { path: '/vless_ws/smjc/index?ed=8192', headers: { Host: cdn-ca.sm-node.com } }, ws-path: '/vless_ws/smjc/index?ed=8192', ws-headers: { Host: cdn-ca.sm-node.com } }
+  - { name: '美国 高速 cdn 2', type: vless, server: cdncdncdn.aikunapp.com, port: 443, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, tls: true, client-fingerprint: chrome, skip-cert-verify: true, servername: r-k5Y6TEkTcB5Ehuw5.sm-node.com, network: ws, ws-opts: { path: '/vless_ws/smjc/index?ed=8192', headers: { Host: cdn-us.sm-node.com } }, ws-path: '/vless_ws/smjc/index?ed=8192', ws-headers: { Host: cdn-us.sm-node.com } }
+  - { name: '日本 樱花 新协议', type: anytls, server: tj-jp-1.aikunapp.com, port: 6001, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, client-fingerprint: chrome, skip-cert-verify: true, sni: bootcdn.xuexi.cn }
+
+
+
+proxy-groups:
+  # ================= 核心功能组 =================
+  - name: "🐸 手动选择"
+    type: select
+    proxies:
+      - "美国 pz (gpt优化)"
+      - "美国 rs 新协议"
+      - "2x专线-香港-1"
+      - "2x专线-香港-2 (新协议)"
+      - "2x专线-日本-1"
+      - "2x专线-日本-2 (新协议)"
+      - "美国 pz 电信优化"
+      - "美国 rs (gpt优化)"
+      - "美国 01（电信移动优化）"
+      - "美国 2 流媒体优化"
+      - "美国 3 流媒体优化"
+      - "美国 3（移动联通优化）"
+      - "台湾(原生IP) 新协议"
+      - "台湾(原生IP)"
+      - "加拿大 高速 cdn 1"
+      - "美国 高速 cdn 1"
+      - "加拿大 高速 cdn 2"
+      - "美国 高速 cdn 2"
+      - "日本 樱花 新协议"
+
+
+
+  - name: "♻️ 故障转移"
+    type: fallback
+    proxies: 
+      - "美国 pz (gpt优化)"
+      - "美国 rs 新协议"
+      - "2x专线-香港-1"
+      - "2x专线-香港-2 (新协议)"
+      - "2x专线-日本-1"
+      - "2x专线-日本-2 (新协议)"
+      - "美国 pz 电信优化"
+      - "美国 rs (gpt优化)"
+      - "美国 01（电信移动优化）"
+      - "美国 2 流媒体优化"
+      - "美国 3 流媒体优化"
+      - "美国 3（移动联通优化）"
+      - "台湾(原生IP) 新协议"
+      - "台湾(原生IP)"
+      - "加拿大 高速 cdn 1"
+      - "美国 高速 cdn 1"
+      - "加拿大 高速 cdn 2"
+      - "美国 高速 cdn 2"
+      - "日本 樱花 新协议"
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 7200
+
+  - name: "🦄 自动选择"
+    type: url-test
+    proxies:
+      - "美国 pz (gpt优化)"
+      - "美国 rs 新协议"
+      - "2x专线-香港-1"
+      - "2x专线-香港-2 (新协议)"
+      - "2x专线-日本-1"
+      - "2x专线-日本-2 (新协议)"
+      - "美国 pz 电信优化"
+      - "美国 rs (gpt优化)"
+      - "美国 01（电信移动优化）"
+      - "美国 2 流媒体优化"
+      - "美国 3 流媒体优化"
+      - "美国 3（移动联通优化）"
+      - "台湾(原生IP) 新协议"
+      - "台湾(原生IP)"
+      - "加拿大 高速 cdn 1"
+      - "美国 高速 cdn 1"
+      - "加拿大 高速 cdn 2"
+      - "美国 高速 cdn 2"
+      - "日本 樱花 新协议"
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 86400
+
+  - {name: 🤖 AI, type: select, proxies: [🐸 手动选择, 🦄 自动选择, ♻️ 故障转移]}
+  - {name: 🌍 国外媒体, type: select, proxies: [🐸 手动选择,🦄 自动选择,♻️ 故障转移]}
+  - {name: 🌏 国内媒体, type: select, proxies: [DIRECT,🐸 手动选择]}
+  - {name: 📲 电报信息, type: select, proxies: [🐸 手动选择,🦄 自动选择,♻️ 故障转移]}
+  - {name: Ⓜ️ 微软服务, type: select, proxies: [DIRECT,🐸 手动选择, 🦄 自动选择,♻️ 故障转移]}
+  - {name: 🍎 苹果服务, type: select, proxies: [DIRECT,🐸 手动选择, 🦄 自动选择,♻️ 故障转移]}
+  - {name: 🎮 游戏平台, type: select, proxies: [DIRECT,🐸 手动选择, 🦄 自动选择,♻️ 故障转移]}
+  - {name: 🌍 国外网站, type: select, proxies: [DIRECT,🐸 手动选择, 🦄 自动选择,♻️ 故障转移]}
+  - {name: 🐟 漏网之鱼, type: select, proxies: [REJECT, DIRECT,🐸 手动选择,🦄 自动选择]}
+  - {name: 🛑 全球拦截, type: select, proxies: [REJECT, DIRECT]}
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
+
+
+
+rules:
+  - RULE-SET,OpenAI,🤖 AI
+  - RULE-SET,Direct,🎯 全球直连
+  - RULE-SET,Github,Ⓜ️ 微软服务
+  - RULE-SET,OneDrive,Ⓜ️ 微软服务
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Youtube,🐸 手动选择
+  - RULE-SET,Google,🐸 手动选择
+  - RULE-SET,Twitter,🐸 手动选择
+  - RULE-SET,Telegram,📲 电报信息
+  - RULE-SET,Steam,🎮 游戏平台
+  - RULE-SET,Epic,🎮 游戏平台
+  - RULE-SET,Emby,🐸 手动选择
+  - RULE-SET,Bahamut,🌍 国外网站
+  - RULE-SET,Netflix,🌍 国外网站
+  - RULE-SET,Disney,🌍 国外网站
+  - RULE-SET,PrimeVideo,🌍 国外网站
+  - RULE-SET,HBO,🌍 国外网站
+  - RULE-SET,TikTok,🌍 国外网站
+  - RULE-SET,Out,🌍 国外网站
+  - GEOIP,Myrule,🌍 国外网站
+  - RULE-SET,Spotify,🐸 手动选择
+  - RULE-SET,AppleProxy,🍎 苹果服务
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,Lan,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼

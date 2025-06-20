@@ -1,0 +1,127 @@
+# clash
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+external-controller: '127.0.0.1:9090'
+global-client-fingerprint: chrome
+unified-delay: true
+geox-url:
+  mmdb: 'https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb'
+dns:
+  enable: true
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  default-nameserver: [120.53.53.53, 1.12.12.12]
+  nameserver: ['https://120.53.53.53/dns-query#skip-cert-verify=true', 'tls://1.12.12.12#skip-cert-verify=true']
+  proxy-server-nameserver: ['https://120.53.53.53/dns-query#skip-cert-verify=true', 'tls://1.12.12.12#skip-cert-verify=true']
+
+rule-providers:
+  # 局域网   
+  Lan: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Lan.list'}
+  #广告拦截
+  Reject: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Reject.list'}
+  # 苹果服务
+  Apple: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Apple.list'}
+  AppleProxy: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/AppleProxy.list'}
+  # 微软服务 
+  Microsoft: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Microsoft.list'}
+  OneDrive: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/OneDrive.list'}
+  Github: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Github.list'}
+  # 谷歌服务
+  Youtube: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/YouTube.list'}
+  Google: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list'}
+  # 电报消息
+  Telegram: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Telegram.list'}
+  # 推特消息
+  Twitter: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Twitter.list'}
+  # 游戏平台
+  Steam: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Steam.list'}
+  Epic: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Epic.list'}
+  # AI平台
+  OpenAI: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list'}
+  # Emby
+  Emby: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Emby.list'}
+  # Spotify
+  Spotify: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Spotify.list'}
+  # 国际媒体
+  Bahamut: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Bahamut.list'}
+  Netflix: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Netflix.list'}
+  Disney: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/Disney.list'}
+  PrimeVideo: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/PrimeVideo.list'}
+  HBO: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/HBO.list'}
+  TikTok: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://github.com/Repcz/Tool/raw/X/Stash/Rules/TikTok.list'}
+  # 其他
+  Direct: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Direct/Direct.list'}
+  # 国外网站
+  Proxy: {type: http, behavior: classical, format: text, interval: 86400, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy.list'}
+proxies:
+  - {name: '剩余流量：195.81 GB', server: aws-sgsg.aikunapp.com, port: 5001, up-speed: 100, down-speed: 10000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: '距离下次重置剩余：27 天', server: aws-sgsg.aikunapp.com, port: 5001, up-speed: 100, down-speed: 10000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: 套餐到期：2025-06-01, server: aws-sgsg.aikunapp.com, port: 5001, up-speed: 100, down-speed: 10000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: '新加坡 01', server: aws-sgsg.aikunapp.com, port: 5001, up-speed: 100, down-speed: 10000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: '香港 01', server: aws-hkhk.aikunapp.com, port: 5001, up-speed: 100, down-speed: 10000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: '美国 (GPT)专用 1', server: 216.73.156.98, port: 5001, up-speed: 100, down-speed: 20000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: '美国 (GPT)专用 2', server: 216.73.156.50, port: 5001, up-speed: 100, down-speed: 20000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: 韩国（三网优化）01, server: krseoul.aikunapp.com, port: 5001, up-speed: 100, down-speed: 20000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: '日本 01', server: aws-jpjp.aikunapp.com, port: 5001, up-speed: 100, down-speed: 10000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: '美国 Oracle', server: us-oracle.aikunapp.com, port: 5001, up-speed: 100, down-speed: 10000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: '新加坡 Oracle', server: sg-oracle.aikunapp.com, port: 5001, up-speed: 100, down-speed: 2000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: 澳大利亚悉尼（移动优化）, server: 140.238.202.137, port: 443, up-speed: 100, down-speed: 2000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: 加拿大, server: 51.79.67.180, port: 5021, up-speed: 100, down-speed: 2000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: '加拿大 IPv6', server: '2607:5300:205:200::3017', port: 5021, up-speed: 100, down-speed: 2000, skip-cert-verify: 1, sni: d1--cn-gotcha204-4.bilivideo.com, type: hysteria2, auth: a7833804-2fcd-458a-8e9e-77c7eff7c828, fast-open: true}
+  - {name: 如果只有几个节点，去官网更新软件, type: vmess, server: 127.0.0.1, port: 20003, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true}
+  - {name: '加拿大 高速 01', type: vmess, server: cdncdncdn.aikunapp.com, port: 2052, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: {path: '/index?ed=2048', headers: {Host: ca-cfcdn.aikunapp.com}}, ws-path: '/index?ed=2048', ws-headers: {Host: ca-cfcdn.aikunapp.com}}
+  - {name: '加拿大 高速 02', type: vmess, server: cdncdncdn.aikunapp.com, port: 2052, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: {path: '/index?ed=2048', headers: {Host: ca-cfcdn.aikunapp.com}}, ws-path: '/index?ed=2048', ws-headers: {Host: ca-cfcdn.aikunapp.com}}
+  - {name: '加拿大 高速 03', type: vmess, server: cdncdncdn.aikunapp.com, port: 2052, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: {path: '/index?ed=2048', headers: {Host: ca-cfcdn.aikunapp.com}}, ws-path: '/index?ed=2048', ws-headers: {Host: ca-cfcdn.aikunapp.com}}
+  - {name: '日本  01 高速', type: vmess, server: cdncdncdn.aikunapp.com, port: 2052, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: {path: '/index?ed=2048', headers: {Host: cfmgny.981545.xyz}}, ws-path: '/index?ed=2048', ws-headers: {Host: cfmgny.981545.xyz}}
+  - {name: '巴西 圣地亚哥 01', type: vmess, server: cdncdncdn.aikunapp.com, port: 2052, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: {path: '/index?ed=2048', headers: {Host: cfbxsdyg.981545.xyz}}, ws-path: '/index?ed=2048', ws-headers: {Host: cfbxsdyg.981545.xyz}}
+  - {name: '新加坡 高速 01', type: vmess, server: cdncdncdn.aikunapp.com, port: 2052, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: {path: '/index?ed=2048', headers: {Host: cfxjp.981545.xyz}}, ws-path: '/index?ed=2048', ws-headers: {Host: cfxjp.981545.xyz}}
+  - {name: '荷兰 01', type: vmess, server: cdncdncdn.aikunapp.com, port: 2052, uuid: a7833804-2fcd-458a-8e9e-77c7eff7c828, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: {path: '/index?ed=2048', headers: {Host: cfhlamstd.981545.xyz}}, ws-path: '/index?ed=2048', ws-headers: {Host: cfhlamstd.981545.xyz}}
+  - {name: '香港 01（HKT）', type: trojan, server: tj-hk.aikunapp.com, port: 5100, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, sni: www.apple.com, skip-cert-verify: true}
+  - {name: '香港 02（HKT）', type: trojan, server: tj-hk.aikunapp.com, port: 5100, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, sni: www.apple.com, skip-cert-verify: true}
+  - {name: '日本 Trojan 0.5x', type: trojan, server: tj-jp-1.aikunapp.com, port: 6001, password: a7833804-2fcd-458a-8e9e-77c7eff7c828, udp: true, sni: s0.awsstatic.com, skip-cert-verify: true}
+proxy-groups:
+  - {name: 三毛机场, type: select, proxies: [剩余流量：195.81 GB, 距离下次重置剩余：27 天, 套餐到期：2025-06-01, 新加坡 01, 香港 01, 美国 (GPT)专用 1, 美国 (GPT)专用 2, 韩国（三网优化）01, 日本 01, 美国 Oracle, 新加坡 Oracle, 澳大利亚悉尼（移动优化）, 加拿大, 加拿大 IPv6, 如果只有几个节点，去官网更新软件, 加拿大 高速 01, 加拿大 高速 02, 加拿大 高速 03, 日本  01 高速, 巴西 圣地亚哥 01, 新加坡 高速 01, 荷兰 01, 香港 01（HKT）, 香港 02（HKT）, 日本 Trojan 0.5x]}
+  - {name: 故障转移, type: fallback, proxies: [新加坡 01, 香港 01, 美国 (GPT)专用 1, 美国 (GPT)专用 2, 韩国（三网优化）01, 日本 01, 美国 Oracle, 新加坡 Oracle, 澳大利亚悉尼（移动优化）, 加拿大, 加拿大 IPv6, 如果只有几个节点，去官网更新软件, 加拿大 高速 02, 加拿大 高速 03, 日本  01 高速, 巴西 圣地亚哥 01, 新加坡 高速 01, 荷兰 01, 香港 01（HKT）, 香港 02（HKT）, 日本 Trojan 0.5x], url: 'http://www.gstatic.com/generate_204', interval: 7200}
+  - {name: 🤖 AI, type: select, proxies: [♻️ 自动选择, 故障转移, '新加坡 01', '香港 01', '美国 (GPT)专用 1', '美国 (GPT)专用 2', 韩国（三网优化）01, '日本 01', '美国 Oracle', '新加坡 Oracle', 澳大利亚悉尼（移动优化）, 加拿大, '加拿大 IPv6', 如果只有几个节点，去官网更新软件, '加拿大 高速 02', '加拿大 高速 03', '日本  01 高速', '巴西 圣地亚哥 01', '新加坡 高速 01', '荷兰 01', '香港 01（HKT）', '香港 02（HKT）', '日本 Trojan 0.5x']}
+  - {name: 🔰 节点选择, type: select, proxies: [♻️ 自动选择, 故障转移, '新加坡 01', '香港 01', '美国 (GPT)专用 1', '美国 (GPT)专用 2', 韩国（三网优化）01, '日本 01', '美国 Oracle', '新加坡 Oracle', 澳大利亚悉尼（移动优化）, 加拿大, '加拿大 IPv6', 如果只有几个节点，去官网更新软件, '加拿大 高速 02', '加拿大 高速 03', '日本  01 高速', '巴西 圣地亚哥 01', '新加坡 高速 01', '荷兰 01', '香港 01（HKT）', '香港 02（HKT）', '日本 Trojan 0.5x']}
+  - {name: ♻️ 自动选择, type: url-test, proxies: ['新加坡 01', '香港 01', '美国 (GPT)专用 1', '美国 (GPT)专用 2', 韩国（三网优化）01, '日本 01', '美国 Oracle', '新加坡 Oracle', 澳大利亚悉尼（移动优化）, 加拿大, '加拿大 IPv6', 如果只有几个节点，去官网更新软件, '加拿大 高速 02', '加拿大 高速 03', '日本  01 高速', '巴西 圣地亚哥 01', '新加坡 高速 01', '荷兰 01', '香港 01（HKT）', '香港 02（HKT）', '日本 Trojan 0.5x'], url: 'http://www.gstatic.com/generate_204', interval: 86400}
+  - {name: 🌍 国外媒体, type: select, proxies: [♻️ 自动选择, 故障转移, '新加坡 01', '香港 01', '美国 (GPT)专用 1', '美国 (GPT)专用 2', 韩国（三网优化）01, '日本 01', '美国 Oracle', '新加坡 Oracle', 澳大利亚悉尼（移动优化）, 加拿大, '加拿大 IPv6', 如果只有几个节点，去官网更新软件, '加拿大 高速 02', '加拿大 高速 03', '日本  01 高速', '巴西 圣地亚哥 01', '新加坡 高速 01', '荷兰 01', '香港 01（HKT）', '香港 02（HKT）', '日本 Trojan 0.5x']}
+  - {name: 🌏 国内媒体, type: select, proxies: [DIRECT, 🔰 节点选择]}
+  - {name: 📲 电报信息, type: select, proxies: [🔰 节点选择, ♻️ 自动选择, 故障转移, '新加坡 01', '香港 01', '美国 (GPT)专用 1', '美国 (GPT)专用 2', 韩国（三网优化）01, '日本 01', '美国 Oracle', '新加坡 Oracle', 澳大利亚悉尼（移动优化）, 加拿大, '加拿大 IPv6', 如果只有几个节点，去官网更新软件, '加拿大 高速 02', '加拿大 高速 03', '日本  01 高速', '巴西 圣地亚哥 01', '新加坡 高速 01', '荷兰 01', '香港 01（HKT）', '香港 02（HKT）', '日本 Trojan 0.5x']}
+  - {name: Ⓜ️ 微软服务, type: select, proxies: [DIRECT, 🔰 节点选择, ♻️ 自动选择, 故障转移, '新加坡 01', '香港 01', '美国 (GPT)专用 1', '美国 (GPT)专用 2', 韩国（三网优化）01, '日本 01', '美国 Oracle', '新加坡 Oracle', 澳大利亚悉尼（移动优化）, 加拿大, '加拿大 IPv6', 如果只有几个节点，去官网更新软件, '加拿大 高速 02', '加拿大 高速 03', '日本  01 高速', '巴西 圣地亚哥 01', '新加坡 高速 01', '荷兰 01', '香港 01（HKT）', '香港 02（HKT）', '日本 Trojan 0.5x']}
+  - {name: 🍎 苹果服务, type: select, proxies: [DIRECT, 🔰 节点选择, ♻️ 自动选择, 故障转移, '新加坡 01', '香港 01', '美国 (GPT)专用 1', '美国 (GPT)专用 2', 韩国（三网优化）01, '日本 01', '美国 Oracle', '新加坡 Oracle', 澳大利亚悉尼（移动优化）, 加拿大, '加拿大 IPv6', 如果只有几个节点，去官网更新软件, '加拿大 高速 02', '加拿大 高速 03', '日本  01 高速', '巴西 圣地亚哥 01', '新加坡 高速 01', '荷兰 01', '香港 01（HKT）', '香港 02（HKT）', '日本 Trojan 0.5x']}
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
+  - {name: 🎮 游戏平台, type: select, proxies: [DIRECT, ♻️ 自动选择, 故障转移]}
+  - {name: 🌍 国外网站, type: select, proxies: [DIRECT, 🔰 节点选择, ♻️ 自动选择, 故障转移]}
+  - {name: 🛑 全球拦截, type: select, proxies: [REJECT, DIRECT]}
+  - {name: 🐟 漏网之鱼, type: select, proxies: [REJECT, DIRECT, 🔰 节点选择, ♻️ 自动选择, 故障转移, '新加坡 01', '香港 01', '美国 (GPT)专用 1', '美国 (GPT)专用 2', 韩国（三网优化）01, '日本 01', '美国 Oracle', '新加坡 Oracle', 澳大利亚悉尼（移动优化）, 加拿大, '加拿大 IPv6','加拿大 高速 02', '加拿大 高速 03', '日本  01 高速', '巴西 圣地亚哥 01', '新加坡 高速 01', '荷兰 01', '香港 01（HKT）', '香港 02（HKT）', '日本 Trojan 0.5x']}
+rules:
+  - RULE-SET,OpenAI,🤖 AI
+  - RULE-SET,Direct,🎯 全球直连
+  - RULE-SET,Github,Ⓜ️ 微软服务
+  - RULE-SET,OneDrive,Ⓜ️ 微软服务
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Youtube,🔰 节点选择
+  - RULE-SET,Google,🔰 节点选择
+  - RULE-SET,Twitter,🔰 节点选择
+  - RULE-SET,Telegram,📲 电报信息
+  - RULE-SET,Steam,🎮 游戏平台
+  - RULE-SET,Epic,🎮 游戏平台
+  - RULE-SET,Emby,🔰 节点选择
+  - RULE-SET,Bahamut,🌍 国外网站
+  - RULE-SET,Netflix,🌍 国外网站
+  - RULE-SET,Disney,🌍 国外网站
+  - RULE-SET,PrimeVideo,🌍 国外网站
+  - RULE-SET,HBO,🌍 国外网站
+  - RULE-SET,TikTok,🌍 国外网站
+  - RULE-SET,Spotify,🔰 节点选择
+  - RULE-SET,AppleProxy,🍎 苹果服务
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,Lan,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
