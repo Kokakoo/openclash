@@ -2,13 +2,13 @@
 DOMAIN-SUFFIX,xn--ehqx7tcnnope.com
 DOMAIN-SUFFIX,xn--mes358aby2apfg.com
 DOMAIN-SUFFIX,sanfen.co
+DOMAIN-SUFFIX,okx.com
 # apple GPT
 DOMAIN-SUFFIX,apple-relay.apple.com
-DOMAIN-SUFFIX,apple-relay.fastly-edge.com
 DOMAIN-SUFFIX,apple-relay.fastly-edge.com
 DOMAIN-SUFFIX,apple-relay.cloudflare.com
 DOMAIN-SUFFIX,gateway.icloud.com
 DOMAIN-SUFFIX,guzzoni.apple.com
 DOMAIN-SUFFIX,cp4.cloudflare.com
-DOMAIN-SUFFIx,gspe1-ssl.ls.apple.com
-DOMAIN-SUFFIx,apps.mzstatic.com
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com
+DOMAIN-SUFFIX,apps.mzstatic.com
